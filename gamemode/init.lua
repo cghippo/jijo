@@ -89,6 +89,20 @@ function GM:PlayerSpawn( ply )
     	ply:SetRunSpeed( 1000 )
     	ply:SetWalkSpeed( 500 )
     end
+
+    ply:SetupHands()
+end
+
+function GM:PlayerSetHandsModel( ply, ent )
+
+	local simplemodel = player_manager.TranslateToPlayerModelName( ply:GetModel() )
+	local info = player_manager.TranslatePlayerHands( simplemodel )
+	if ( info ) then
+		ent:SetModel( info.model )
+		ent:SetSkin( info.skin )
+		ent:SetBodyGroups( info.body )
+	end
+
 end
 
 function GM:PlayerDeath( victim, inflictor, attacker )
