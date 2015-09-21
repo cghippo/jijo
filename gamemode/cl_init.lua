@@ -18,7 +18,9 @@ function GM:HUDPaint()
                 draw.RoundedBox(1, ScrW() - 1400 - 10, ScrH () - 30 - 10, (300) * DrawHealth / 100, 20, Color(204, 0, 0, 255))
         end
 
-end 
+        draw.DrawText( team.GetName( ply:Team() ), "Trebuchet24", ScrW() - 1300, ScrH() - 100, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER )
+end
+
 local ourMat = Material( "heart.png" ) -- Calling Material() every frame is quire expensive
 
 hook.Add( "HUDPaint", "example_hook", function()
