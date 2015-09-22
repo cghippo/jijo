@@ -1,14 +1,16 @@
 include( 'shared.lua' )
 
-local ply = LocalPlayer()
+local ply = ply or LocalPlayer()
 
+local DrawHealth
 function GM:HUDPaint()
         draw.RoundedBox(1, ScrW() - 1400 - 10, ScrH () - 30 - 10, 300, 20, Color(0, 0, 50, 205))
        
         // Health Bar Below
        
-        local DrawHealth = LocalPlayer():Health() or 0
-        local EchoHealth = LocalPlayer():Health() or 0
+        --local DrawHealth = LocalPlayer():Health() or 0
+        DrawHealth = Lerp( 0.1, DrawHealth, ply:Health() or 0 ) -- Smoother when you loose/gain health :)
+        local EchoHealth = ply:Health() or 0
  
         if DrawHealth > 250 then DrawHealth = 250 end
         if DrawHealth < 0 then DrawHealth = 0 end
