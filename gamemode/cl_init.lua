@@ -1,26 +1,28 @@
-include( 'shared.lua' )
+include( 'shared.lua' )  
 
-local ply = ply or LocalPlayer()
-
-local DrawHealth
-function GM:HUDPaint()
-        draw.RoundedBox(1, ScrW() - 1400 - 10, ScrH () - 30 - 10, 300, 20, Color(0, 0, 50, 205))
-       
-        // Health Bar Below
-       
-        --local DrawHealth = LocalPlayer():Health() or 0
-        DrawHealth = Lerp( 0.1, DrawHealth, ply:Health() or 0 ) -- Smoother when you loose/gain health :)
-        local EchoHealth = ply:Health() or 0
+  local ply = LocalPlayer() 
  
-        if DrawHealth > 250 then DrawHealth = 250 end
-        if DrawHealth < 0 then DrawHealth = 0 end
-        if DrawHealth == 0 then DrawHealth = 0 end
-       
-        if DrawHealth !=  0 then
-                draw.RoundedBox(1, ScrW() - 1400 - 10, ScrH () - 30 - 10, (300) * DrawHealth / 100, 20, Color(204, 0, 0, 255))
-        end
+ 
+function GM:HUDPaint() 
+         draw.RoundedBox(1, ScrW() - 1400 - 10, ScrH () - 30 - 10, 300, 20, Color(0, 0, 50, 205)) 
+         
+         // Health Bar Below 
+         
+         local DrawHealth = LocalPlayer():Health() or 0 
+         local EchoHealth = LocalPlayer():Health() or 0 
 
-end
+         if DrawHealth > 250 then DrawHealth = 250 end 
+         if DrawHealth < 0 then DrawHealth = 0 end 
+         if DrawHealth == 0 then DrawHealth = 0 end 
+         
+         if DrawHealth !=  0 then 
+                 draw.RoundedBox(1, ScrW() - 1400 - 10, ScrH () - 30 - 10, (300) * DrawHealth / 100, 20, Color(204, 0, 0, 255)) 
+         end 
+
+ 
+        draw.DrawText( team.GetName( ply:Team() ), "Trebuchet24", ScrW() - 1300, ScrH() - 100, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER ) 
+end 
+
 
 local ourMat = Material( "heart.png" ) -- Calling Material() every frame is quire expensive
 
