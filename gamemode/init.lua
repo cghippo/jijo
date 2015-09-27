@@ -119,6 +119,8 @@ function TEAM_1( ply ) -- Creating the function.
 	ply:UnSpectate() -- As soon as the person joins the team, he get's Un-spectated
 	ply:SetTeam( 0 ) -- We'll set him to team 1
 	ply:Spawn() -- Let's spawn him.
+	ply:Flashlight( true )
+	ply:AllowFlashlight( true )
 end -- End the function
 concommand.Add("TEAM_1", TEAM_1) -- Adding a concommand (Console Command) for the team.
  
@@ -127,5 +129,7 @@ function TEAM_2( ply )
 	ply:UnSpectate()
 	ply:SetTeam( 1 )
 	ply:Spawn()
+	ply:Flashlight( true )
+	ply:AllowFlashlight( true )
 end
 concommand.Add("TEAM_2", TEAM_2)
