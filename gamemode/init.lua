@@ -89,8 +89,11 @@ function GM:PlayerSpawn( ply )
     if ply:Team() == 0 then
     	ply:SetRunSpeed( 1000 )
     	ply:SetWalkSpeed( 500 )
+    else
+    	ply:SetRunSpeed( 350 )
+    	ply:SetWalkSpeed( 200 )
     end
-
+    
     ply:SetupHands()
 end
 
