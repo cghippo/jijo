@@ -40,7 +40,7 @@ hook.Add("HUDShouldDraw", "HideOurHud:D", hidehud)
 
 function GM:RenderScreenspaceEffects()
     if LocalPlayer():Team() == 0 then
-     DrawTexturize( 3, Material("pp/texturize/rainbow.png"))
+     DrawTexturize( 3, Material("pp/texturize/plain.png"))
     end
 end
 
