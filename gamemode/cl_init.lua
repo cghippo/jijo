@@ -1,4 +1,5 @@
-include( 'shared.lua' )  
+include( 'shared.lua' ) 
+include( 'cl_scoreboard.lua' )
 
   local ply = LocalPlayer() 
  
