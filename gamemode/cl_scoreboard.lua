@@ -6,7 +6,7 @@
 ]]
 
 
-  function GAMEMODE:ScoreboardShow()
+  function GM:ScoreboardShow()
   end
 
 
@@ -99,7 +99,7 @@ local function drawScoreboard()
     draw.RoundedBox( 2, w-2, 40, 2, h-40, Color( 30, 30, 30, 240 ) )
   end
 
-  createPlayers( (TEAM_JIJOS or TEAM_JIJO or 2), d1 )
+  createPlayers( (TEAM_JIJOS or TEAM_JIJO or 0), d1 )
 
   local d2 = vgui.Create( "DScrollPanel", m )
   d2:SetPos(m:GetWide()/2, 40)
