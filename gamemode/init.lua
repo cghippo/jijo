@@ -5,6 +5,8 @@ AddCSLuaFile( "cl_scoreboard.lua" )
 include( 'shared.lua' )
 include("player.lua")
 
+util.AddNetworkString( 'jijo_teamshow' )
+
 
 // Serverside only stuff goes here
 
@@ -115,6 +117,11 @@ end
 
 function GM:GetFallDamage( ply, speed )
 	return ( speed / 500 )
+end
+
+function GM:ShowTeam( pl )
+	net.Start( 'jijo_teamshow' )
+	net.Send( pl )
 end
 
 // You can make a simple function using arguements to make this less messier but this would be the simplest way to explain what it does.	
